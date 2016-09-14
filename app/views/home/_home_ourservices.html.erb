@@ -1,0 +1,50 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center wow fadeInDown">
+				<i class="fa fa-question-circle" style="font-size: 44px;"></i>
+				<h2 class="text-uppercase">ما چه کارهایی انجام میدهیم؟</h2>
+				<div id="typcontainer">
+					<p id="typing" style="font-family:parastoo;"></p>			
+				</div>
+				<div style="possition:fixed;" class="divider"></div>
+				<br />
+				<br />
+			</div>
+			<div class="col-md-4 wow fadeInDown">
+				<div class="pv-30 ph-20 service-block bordered shadow text-center object-non-visible animated object-visible fadeInDownSmall hvr-glow" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+				<a href="#"><img class="our-service hvr-float" src=<%= asset_path("design-service.svg") %> alt="بیوگرافی فرهاد کریمی"></a>
+					<h3>طراحی و توسعه وب</h3>
+					<div class="divider clearfix"></div>
+					<p class="parastoo">سپهر تک همواره تلاش کرده تا با استفاده از تکنولوژی های نوین یا به اصطلاح لبه تکنولوژی ، نیازهای مشتریان را به نحوی احسنت پاسخگو باشد.</p>
+					<a href="page-services.html">بیشتر بخوانید <i class="pl-5 fa fa-angle-double-right"></i></a>
+				</div>
+			</div>
+			<div class="col-md-4 wow fadeInDown">
+				<div class="pv-30 ph-20 service-block bordered shadow text-center object-non-visible animated object-visible fadeInDownSmall hvr-glow" data-animation-effect="fadeInDownSmall" data-effect-delay="150">
+					<a href=""><img class="our-service hvr-float" src=<%= asset_path("cloud-service.svg") %> alt=""></a>
+					<h3>محصولات اختصاصی سپهر تک</h3>
+					<div class="divider clearfix"></div>
+					<p class="parastoo">برخی از سرویس های اختصاصی ما عبارتند از : فروشگاه اینترنتی ،‌ شبکه اجتماعی ، سیستم جامع CRM </p>
+					<a href="page-services.html">بیشتر بخوانید <i class="pl-5 fa fa-angle-double-right"></i></a>
+				</div>
+			</div>
+			<div class="col-md-4 wow fadeInDown">
+				<div class="pv-30 ph-20 service-block bordered shadow text-center object-non-visible animated object-visible fadeInDownSmall hvr-glow" data-animation-effect="fadeInDownSmall" data-effect-delay="200">
+				<a href=""><img class="our-service hvr-float" src=<%= asset_path("products-service.svg") %> alt=""></a>					<h3>سرویس های ابری سپهر تکنولوژی</h3>
+					<div class="divider clearfix"></div>
+					<p>Iure sequi unde hic. Sapiente quaerat sequi inventore veritatis cumque lorem ipsum dolor sit amet, consectetur.</p>
+					<a href="page-services.html">بیشتر بخوانید <i class="pl-5 fa fa-angle-double-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+  $(function(){
+      $("#typing").typed({
+        strings: ["طراحی و پیاده سازی وبسایت و زیر ساخت های تجارت الکترونیک ^1000", "میزبانی بر روی ابر سرور های قدرتمند سپهر کلود <i class='fa fa-cloud'></i> ^1000","ارائه پنل ابری با قابلیت انتخاب دیتاسنتر ، میزان منابع و...","طراحی و توسعه فروشگاههای اینترنتی با قابلیت های گسترده ^500","پیاده سازی شبکه های اجتماعی با پایداری بالا"],
+        typeSpeed: 0, backSpeed: 0, backDelay:2000, loop: true, showCursor: false
+      });
+  });
+</script>

@@ -1,0 +1,49 @@
+<div class="row">
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+	<img src="news24.png" alt="وبلاگ خبری" style="float:right;height:50px;width:140px;" >
+	<ul style="float:right;" class="nav navbar-nav">
+		<li><%= link_to "صفحه اصلی", root_path %></li>
+		<% Category.all.each do |category| %>
+			<li><%= link_to category.name, category_path(category.id) %></li>
+		<% end %>
+	</ul>
+	<% if signed_in? %>
+	 <div class="pull-left">
+                    <ul class="nav pull-left">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              کاربر گرامی <%= sanitize(current_user.email.to_s) %> خوش آمدید<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                            <% if current_user.admin? %>
+                                <li>
+                                    <a href="/admin"> <i class="icon-cog"></i>
+                                        صفحه مدیریت
+                                    </a>
+                                </li>
+                            <% end %>
+                                <li>
+                                    <a href="/help/support">
+                                        <i class="icon-envelope"></i>
+										پروفایل شما
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= link_to "خروج", destroy_user_session_path, :method => :delete %>
+                                        <i class="icon-off"></i>
+                                </li>
+                                <li>
+                                    <%= gravatar_image_tag current_user.email, "محیط کاربری" %>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+    <% else %>
+    	<%= link_to "وارد شوید" , user_session_path %> | <%= link_to "ثبت نام کنید", new_user_registration_path %>
+    <% end %>
+	</div>
+	</nav>
+</div>

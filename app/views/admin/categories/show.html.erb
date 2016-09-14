@@ -1,0 +1,12 @@
+<% flash.each do |name, msg| %>
+	<div class="alert alert-"<%=#{name}%>"> <%= msg %> </div>
+<% end %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_category_path(@category) %> |
+<%= link_to 'Back', admin_categories_path %>

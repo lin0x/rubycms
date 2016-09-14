@@ -1,0 +1,17 @@
+<div class="container">
+	<div class="row">
+	<div class="col-md-12">
+	<% @category.pages.each do |page| %>
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					 <%= link_to page.title, url_for_page(page) %>
+				</div>
+				<div class="panel-body">
+					<%= truncate(page.body.to_s, :length => 50) %>
+				</div>
+		</div>
+		<hr>
+	<% end %>
+	</div>
+	</div>
+</div>

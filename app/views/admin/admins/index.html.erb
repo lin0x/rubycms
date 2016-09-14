@@ -1,0 +1,134 @@
+<% provide(:title,"پنل مدیریت") %>
+<style>
+	.well{
+		width: 200px;
+		height: 200px;
+		text-align: center;
+		font-weight: bolder;
+	}
+	body{
+		overflow-x:hidden;
+	}
+</style>
+<div style="padding-bottom:15px;" class="container">
+	
+	<div class="row">
+		
+		<div class="col-lg-12">
+			
+			<div class="col-lg-3">
+			<!-- user profile area -->
+				<div class="panel panel-primary">
+					<div style="text-align:center;" class="panel-heading">
+						اطلاعات کاربر
+					</div>
+					
+					<div style="text-align:center;" class="panel-body">
+						<img style="padding:0 0 5px 0;width:70px;height:70px;" src=<%= asset_path("admin/no-image.png") %> alt="">
+						<p class="small"> فرهاد کریمی</p>
+					</div>
+
+				</div>
+				<!-- sidebar here -->
+				<div class="panel panel-primary">
+					<div style="text-align:center;" class="panel-heading">
+						آخرین مطالب منتشر شده
+					</div>
+					
+					<div class="panel-body">
+						<table class="table table-hover">
+							<thead>
+								<th class="small">#</th>
+								<th class="small">عنوان</th>
+								<th class="small">تاریخ انتشار</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>۱</td>
+									<td style="font-size:10px;">بهینه سازی موتورهای جستجو</td>
+									<td style="font-size:12px;"><span class="label label-default">۲۲ اردیبهشت ۹۴</span></td>
+								</tr>
+								<tr>
+									<td>۲</td>
+									<td style="font-size:10px;">بهینه سازی موتورهای جستجو</td>
+									<td style="font-size:12px;"><span class="label label-warning">۲۲ اردیبهشت ۹۴</span></td>
+								</tr>
+								<tr>
+									<td>۳</td>
+									<td style="font-size:10px;">بهینه سازی موتورهای جستجو</td>
+									<td style="font-size:12px;"><span class="label label-danger">۲۲ اردیبهشت ۹۴</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>				
+
+			</div>
+			
+			<div class="col-lg-9">
+				
+				<div class="row">
+					<div class="col-md-12">
+						
+						<div class="col-md-4">
+							<div class="well">
+								<img src=<%= asset_path("admin/text-content.png") %> alt=""> <br />
+								<p style="font-size:17px;">تعداد مطالب <br /> ۱۲</p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="well">
+								<img src=<%= asset_path("admin/chart.png") %> alt=""> <br />
+								<p style="font-size:17px;">بازدیدهای امروز <br /> ۵۰۰</p> 
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="well">
+								<img src=<%= asset_path("admin/users.png") %> alt=""> <br />
+								<p style="font-size:17px;">کاربران ثبت نام کرده <br /> <%= enConvertor("1998") %> </span></p> 
+							 	
+							 </div>
+						</div>
+
+					</div>
+				</div>
+				<div style="clear:both;border:2px solid gray;"></div>
+				<div class="row">
+						<div class="container">
+						<!-------->
+							<div style="width:72%;padding:5px 0 0 0;" id="content">
+							    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+							        <li class="active"><a href="#red" data-toggle="tab">نمودار بازدیدها</a></li>
+							        <li><a href="#orange" data-toggle="tab">آدرس بازدید کنندگان</a></li>
+							        <li><a href="#yellow" data-toggle="tab">موقعیت جغرافیایی</a></li>
+							    </ul>
+							    <div id="my-tab-content" class="tab-content">
+							        <div class="tab-pane active" id="red">
+							            <h1>نمودار بازدیدها</h1>
+							            <p>red red red red red red</p>
+							        </div>
+							        <div class="tab-pane" id="orange">
+							            <h1>آدرس بازدید کنندگان</h1>
+							            <p>orange orange orange orange orange</p>
+							        </div>
+							        <div class="tab-pane" id="yellow">
+							            <h1>موقعیت جغرافیایی</h1>
+							            <p>yellow yellow yellow yellow yellow</p>
+							        </div>
+							    </div>
+							</div>
+						</div> 
+					<!-- container -->
+				</div>
+				<!-- contents -->
+			</div>
+	
+		</div>
+
+	</div>
+
+</div>
+

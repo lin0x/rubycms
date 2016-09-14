@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'form_layout', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'form_layout', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% provide(:title, "ورود به پنل کاربری") %>
+	<div class="container">
+        <div class="card card-container">
+		<% if flash.count > 0 %>
+		<div id="error_explanation">
+		<% flash.each do |name, message| %>
+		    <div class="alert alert-danger">
+		   	<button type="button" class="close" data-dismiss="alert">×</button>
+		    	<ul>
+			        <li>
+			        	<%= message %>
+			        </li>
+		     	</ul>
+		    </div>
+		<% end %>
+		</div>
+		<% end %>            
+		<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card">ورود به محیط کاربری</p>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-signin") do |f| %>
+                <span id="reauth-email" class="reauth-email"></span>
+                <%= f.email_field :email, id:"inputEmail", class:"form-control", placeholder:"ایمیل", required:true,autofocus: true %> <br />
+                <%= f.password_field :password,autocomplete: "off", id:"inputPassword", class:"form-control", placeholder:"کلمه عبور", required: true%>
+                <% if devise_mapping.rememberable? -%>
+              		<%= f.label "اطلاعات مرا به یاد داشته باشد"%>
+              		<%= f.check_box :remember_me  %> <br />	
+              	<% end %> <br />
+				<%= f.submit "ورود",class:"btn btn-success" %>
+			<% end %>
+            <a href="#" class="forgot-password small">
+                آیا کلمه عبور خود را فراموش کرده اید؟
+            </a> <br />
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+	</body>
+</html>

@@ -1,0 +1,11 @@
+<div class="container">
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+      <% @post.errors.full_messages do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

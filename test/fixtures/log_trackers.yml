@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visitor_ip: MyString
+  visitor_url: MyString
+  visitor_searching_keywords: MyString
+
+two:
+  visitor_ip: MyString
+  visitor_url: MyString
+  visitor_searching_keywords: MyString

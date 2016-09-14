@@ -1,0 +1,35 @@
+    <section id="blog" class="container">
+   
+        <div class="blog">
+            <div class="row">
+            <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="blog-item">
+                        <img class="img-responsive img-blog" src="<%= @post.image.blog.url %>" width="780px" height="300px" alt="" />
+                            <div class="row">  
+                                <div class="col-xs-12 col-sm-2 text-center">
+                                    <div class="entry-meta">
+                                        <span id="publish_date"><%= @post.publish_date_time %></span>
+                                        <span><i class="fa fa-user"></i> <a href="#"> فرهاد کریمی</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">دو دیدگاه</a></span>
+                                        <span><i class="fa fa-tags"></i> <a href="#">مقالات</a></span>
+
+                                    </div>
+                                </div>
+                                <div style="line-height:25px;" class="col-xs-12 col-sm-10 blog-content">
+                                    <h2 style="margin-bottom:4px;"><%= sanitize(@post.title) %></h2>
+                                    <p><%= sanitize(@post.body) %></p>
+                                    <hr>
+                                    <div class="post-tags">
+                                        <strong class="small">
+                                        <i class="glyphicon glyphicon-tag"></i>
+                                        کلمات کلیدی:
+                                        </strong> 
+                                        <a class="label label-default" href="#"><i class="glyphicon glyphicon-tag"></i> برنامه نویسی</a> 
+                                        <a class="label label-default" href="#"><i class="glyphicon glyphicon-tag"></i> پیشرفت</a> 
+                                        <a class="label label-default" href="#"><i class="glyphicon glyphicon-tag"></i> مقاله</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div><!--/.blog-item-->

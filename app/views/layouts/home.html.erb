@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title><%= yield(:title) %></title>
+    <%= stylesheet_link_tag    'home_layout', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'home_layout', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script src=<%= asset_path("main.js") %>></script>
+    <script src=<%= asset_path("particles.js") %>></script>
+    <!-- core CSS -->
+    <!--[if lt IE 9]>
+    <script src=<%= asset_path("html5shiv.js") %>></script>
+    <script src=<%= asset_path("respond.min.js") %>></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href=<%= asset_path("ico/favicon.png") %>>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href=<%= asset_path("ico/apple-touch-icon-144-precomposed.png") %>>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href=<%= asset_path("ico/apple-touch-icon-114-precomposed.png") %>>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href=<%= asset_path("ico/apple-touch-icon-72-precomposed.png") %>>
+    <link rel="apple-touch-icon-precomposed" href=<%= asset_path("ico/apple-touch-icon-57-precomposed.png") %>>
+</head><!--/head-->
+<body class="homepage">
+    <%= render 'shared/home_header'%>
+    <%= render 'home_slider'%>    
+    <%= render 'home_ourservices'%>
+    <%= render "home_tabed" %>
+    <%# render 'home_features'%>
+    <%# render 'home_works'%>
+    <%# render 'home_services'%>
+    <%= render 'home_skills'%>
+    <%# render 'home_feedbacks'%>
+    <%# render 'home_partners'%>
+    <%# render 'home_lastnews' %>
+    <%= render 'home_customer_counter' %>
+    <%= render 'home_bottom' %>
+    <%= render 'shared/home_footer'%>     
+</body>

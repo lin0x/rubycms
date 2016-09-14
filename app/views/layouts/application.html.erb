@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    'admin_layout', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin_layout', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  	<script src= <%= asset_path("custom.js") %> ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<%= asset_path("bootstrap.vertical-tabs.scss") %>">
+
+<body>
+	<% if admin_zone? %>
+		<%= render 'shared/admin_header' %>
+	<%# else %>
+		<%# render 'shared/header' %>
+	<% end %>
+	<div id="content">
+		<%= yield %>
+	</div>
+	<% if admin_zone? %>
+		<%= render	'shared/admin_footer' %>
+	<%# else %>
+		<%# render 'shared/footer' %>
+	<% end %>
+</body>
+</html>

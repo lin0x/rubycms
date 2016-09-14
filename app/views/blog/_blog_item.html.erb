@@ -1,0 +1,23 @@
+                    <% @posts.each do |post| %>
+                    <div class="blog-item">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 text-center">
+                                <div class="entry-meta">
+                                    <span id="publish_date"><%= post.publish_date_time %></span>
+                                    <span><i class="fa fa-user"></i> <a href="#">فرهاد کریمی</a></span>
+                                    <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">دو دیدگاه</a></span>
+                                    <span><i class="fa fa-tags"></i> <a href="#"><%= post.category.name %></a></span>
+                                </div>
+                            </div>
+                                
+                            <div class="col-xs-12 col-sm-10 blog-content">
+                                <a href="#"><img class="img-responsive img-blog" src="<%= asset_path("idea-thief.jpg") %>" width="100%" alt="" /></a>
+                                <h2><a href="blog-item.html"><%= post.title %></a></h2>
+                                <p><%= sanitize(abbr_post_text(post.body)) %></p>
+                                <a class="btn btn-primary readmore" href="<%= post_path(post) %>">در ادامه بخوانید <i class="fa fa-angle-left"></i></a>
+                            </div>
+                        </div>    
+                    </div><!--/.blog-item-->
+                    <hr>
+                    <% end %>
+

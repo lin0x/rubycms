@@ -1,0 +1,113 @@
+<% provide(:title, "ارسال پست جدید")%>
+<div class="container">
+  <div class="row">
+   <%= form_for(([:admin,@post]),html:{:mutipart => "ture"}) do |f| %>
+      <%= render 'shared/error_messages_posts' %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <strong> ارسال مطلب </strong>
+    </div>
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-12">
+        <%= f.label "تیتر مطلب" %><br>
+        <%= f.text_field :title , class: 'form-control' %>
+        <%= f.label "متن" %><br>
+        <%= f.cktext_area :body %>
+      </div>
+    </div>
+    <!-- End of Ckeditor -->
+    <div class="row">
+    <div class="col-md-12">
+      <div style="margin-top:7px;" class="row">
+        <div class="col-md-4 ">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong class="small">انتخاب دسته</strong>
+          </div>
+            <div class="panel-body">
+              <%= f.select(:category_id,get_select_data.collect{|name,value| [name,value]},:selected => f.object.category_id)%>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong class="small">تاریخ درج مطلب</strong>
+          </div>
+          <div class="panel-body">
+            <div class="input-group date" data-provide="datepicker">
+            <%= f.text_field :publish_date_time , :class => 'datepicker form-control' %>
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong class="small">انتخاب عکس بند انگشتی</strong>
+          </div>
+          <div class="panel-body">
+            <%= f.label :image do%>
+            <%= f.file_field  :image, :class => 'file form-control', :id => 'thumbnail_file' %>
+            <% end %> 
+            <br>
+              <% if f.object.image? %>
+                <div class="well">
+                  <%= image_tag f.object.image.thumb.url %>
+                  <%= f.label "حذف عکس بند انگشتی", class: "label label-warning small" %>
+                  <%= f.check_box :remove_image %>
+                </div>
+              <% end %> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="pull-left">
+                    <%= f.label "انتشار بیابد؟" %>
+                    <%= f.check_box :published %>
+                  </div>
+                    <%= f.submit "ثبت", class: 'btn btn-primary' %>
+                    <%= f.button "انصراف", :type => 'reset' ,class: 'btn btn-default' %>
+                    <%= f.button "بازگشت به ارسالها" ,class: 'btn btn-danger' %>
+                    <% end %> 
+                  </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script src="javascripts/fileinput_locale_fa.js"></script>
+<script>
+  $("#thumbnail_file").fileinput({
+    'showUpload':false,
+    'data-show-upload': false,
+    'previewFileType':'any', 
+    'showUploadedThumbs': true,
+    'language': 'fa',
+    'allowedFileType':['image'],
+    'allowedFileExtensions':['jpg','png','gif'],
+    'maxFileSize': 500,
+    'resizeImage': true,
+    'maxImageWidth': 200,
+    'maxImageHeight': 200
+  });
+</script>
+<script type="text/javascript">
+      $(document).ready(function() {
+          $(".datepicker").pDatepicker({
+            //format : "YYYY - MM - DD dddd"
+            format : "dddd , DD MMMM YYYY"
+          });
+      });
+</script>

@@ -1,0 +1,41 @@
+<div class="container">
+      <div class="row">
+      <% if flash %>
+          <% flash.each do |name, msg| %>
+            <div class="alert alert-<%= name  %>">
+            <%= msg %>
+            </div>
+          <% end %>
+      <% end %>  
+    </div>
+    <div class="col-md-12">
+      <h1>صفحه های ویژه</h1>
+      <div class="panle panel-default">
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+              <th>تیتر مطلب</th>
+              <th>چکیده</th>
+              <th>آدرس سفارشی</th>
+              <th>دسته مطلب</th>
+              <th colspan="3"></th>
+          </tr>
+        </thead>
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+              <td><%= sanitize(strip_tags(page.title)) %></td>
+              <td><%= sanitize(truncate(strip_tags(page.body),length: 100)) %></td>
+              <td><mark><%= url_for_page page %></mark></td>
+              <td><%= Category.find(page.category.id.to_i)[:name] unless Category.count != 0 %></td>
+              <td><%= link_to 'Show', admin_page_path(page) %></td>
+              <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+              <td><%= link_to 'Destroy', admin_page_path(page), method: :delete, data: { confirm: 'آیا میخواهید این مطلب را حذف کنید؟' },:remote => true, :class => 'delete_post' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= link_to "ایجاد صفحه یکتا",new_admin_page_path,class: 'btn btn-primary' %> <br>
+      </div>
+    </div>
+</div>

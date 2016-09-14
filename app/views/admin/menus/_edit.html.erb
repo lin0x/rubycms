@@ -1,0 +1,84 @@
+<div class="container">
+  <%= form_for([:admin,@menu]) do |f| %>
+    <% if @menu.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+        <ul>
+            <% @menu.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+          <strong>لیست منوها</strong>
+          </div>
+          <br />
+          <ul>
+          <% Menu.all.each do |menu| %>
+            <li><%= link_to menu.name, edit_admin_menu_path(menu)  %></li>
+              <ul>
+                <% menu.mitems.each do |item| %>
+                <li><%= item.title %></li>
+                <% end %>
+              </ul>
+              <%= link_to admin_menu_path(menu), method: :delete,:remote => "true", data: { confirm: 'آیا میخواهید این منو را حذف کنید؟' } do%>
+                  <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+              <%= link_to edit_admin_menu_path(menu)  do%>
+                  <span class="glyphicon glyphicon-edit"></span>
+              <% end %>
+              <hr>
+          <% end %>
+          </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <strong>مدیریت منوها</strong>
+        </div>
+        <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="field">
+              <%= f.label "نام منو" %><br>
+              <%= f.text_field :name , :class => "form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label "آدرس منوی اصلی" %><br>
+              <%= f.text_field :url , :class => "form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label "توضیحات منو" %><br>
+              <%= f.text_area :description , :class => "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+          <div style="line-height:30px;" class="alert alert-danger">
+            <mark>با کلیک بر روی دکمه ضربدر پایین فیلدها میتوانید زیرمنو هارا حذف کنید.</mark>
+          </div>
+              <%= f.fields_for :mitems do |item| %>
+                <%= render "submenu", f: item %>
+              <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="actions">
+              <%= f.submit "ثبت ویرایش", :class => "btn btn-warning" %>
+            </div>
+          <% end %>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

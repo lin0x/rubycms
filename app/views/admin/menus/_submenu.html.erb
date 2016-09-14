@@ -1,0 +1,11 @@
+<fieldset>
+	<%= f.hidden_field :id  %>
+	<%= f.label "عنوان زیر منو" %>
+	<%= f.text_field :title , :class => "form-control" %> <br />
+	<%= f.label "آدرس زیر منو" %>
+	<%= f.text_field :url , :class => "form-control" %>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to "#" ,class: "remove_field" do%>
+		<span class="glyphicon glyphicon-remove"></span>
+	<% end %>
+</fieldset>

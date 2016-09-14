@@ -1,20 +1,5 @@
 == README
 
-RubyCMS is simple and lightweight CMS.
+RubyCMS is simple and lightweight CMS
 
-Some of key feauter of RubyCMS
-
-* Simple and lightweight template system
-
-* Multi tanancy database and schema
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
-<tt>rake doc:app</tt>.
+this cms is just for educational purposes.
